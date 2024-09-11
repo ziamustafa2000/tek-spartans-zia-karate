@@ -22,8 +22,8 @@ Feature: Testing Account APIs
   # Send request to /api/accounts/get-account with Account 55225522
   # Status code should be 404 and errorMessage = "Account with id 55225522 not found"
   @Account_2
-  Scenario: Testing get-account with non-existing accoundId
-    * def accountId = 55231
+  Scenario: Testing get-account with non-existing accountId
+    * def accountId = 552343
     Given param primaryPersonId = accountId
     When method get
     Then print response
