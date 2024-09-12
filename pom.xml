@@ -16,12 +16,12 @@
 
     <dependency>
         <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5 -->
-        <dependencies>
+        <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit5</artifactId>
             <version>1.4.1</version>
             <scope>test</scope>
-        </dependencies>
+        </dependency>
 
     </dependency>
 
