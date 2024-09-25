@@ -1,4 +1,4 @@
-package runners;
+package runner;
 
 import com.intuit.karate.junit5.Karate;
 
@@ -9,6 +9,7 @@ public class TestRunner {
         return Karate
                 .run("classpath:features")
                 .karateEnv("dev")
-                .tags("@End2EndAccount");
+                .tags("@Regression")
+                .outputCucumberJson(true);
     }
 }

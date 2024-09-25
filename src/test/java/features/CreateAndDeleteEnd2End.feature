@@ -1,15 +1,13 @@
 @Regression
-Feature: End-to-End Testing: Create and Delete an Account
+Feature: End 2 Ending Testing Create to Delete and Account
 
   @End2EndAccount
-  Scenario: Successfully delete an account
+  Scenario: successfully delete and account
     Given url BASE_URL
     * def createAccount = callonce read('CreateAccountWithRandomEmail.feature')
     * def newAccountId = createAccount.response.id
     * def supervisorToken = callonce read('GenerateSupervisorToken.feature')
     * def token = "Bearer " + supervisorToken.response.token
-
-    # Get account details
     Given path "/api/accounts/get-account"
     Given header Authorization = token
     Given param primaryPersonId = newAccountId
@@ -21,18 +19,16 @@ Feature: End-to-End Testing: Create and Delete an Account
     And assert response.primaryPerson.gender == createAccount.response.gender
     And assert response.primaryPerson.firstName == createAccount.response.firstName
 
-    # Delete the account
     Given path "/api/accounts/delete-account"
     Given param primaryPersonId = newAccountId
     Given header Authorization = token
     When method delete
     Then status 202
 
-    # Attempt to delete the already deleted account (should return 404)
     Given path "/api/accounts/delete-account"
     Given param primaryPersonId = newAccountId
     Given header Authorization = token
     When method delete
     Then print response
     Then status 404
-    And assert response.errorMessage == "Account with id " + newAccountId + " does not exist"
+    Then assert response.errorMessage == "Account with id " + newAccountId + " not exist"
