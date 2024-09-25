@@ -1,3 +1,4 @@
+@Regression
 Feature: Testing Account APIs
 
   @account_1

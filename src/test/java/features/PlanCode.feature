@@ -1,3 +1,4 @@
+@Regression
 Feature: Testing Plan code
   @PlanCode_1
   Scenario: Testing endpoint /api/plans/get-all-pla-code
